@@ -1,18 +1,21 @@
-// Primo programma:
-function palidroma (word){
-    for (var i = 0; i < word.lenght; i++) {
-        if (word.slice(i) === word.lenght[i] ) {
-            var risultato = 'si è palidroma' + word;
-        }else{
-            risultato = 'no'
-        }
+var stringaUtente = prompt('Inserisci una parola per sapere se è Palidroma');
+
+function palidroma(parola) {
+    // var lunghezzaParola = parola.lenght;
+    // var stringa = "";
+    // for (var i = (lunghezzaParola - 1); i >= 0; i--) {
+    //     stringa += parola[i];
+    // }
+    // return stringa;
+    var stringa = parola.split('').reverse().join('');
+    if (stringa === parola) {
+        alert('è palindroma');
+    }else{
+        alert('no');
     }
-    return risultato; 
+    return stringa;
+
 }
-var outPut = document.getElementById('result');
 
-var parolaUtente = prompt('Inserisci una parola');
-
-var result = palidroma(parolaUtente);
-outPut.innerHTML = result;
+alert(palidroma(stringaUtente));
 
