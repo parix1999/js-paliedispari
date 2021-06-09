@@ -35,11 +35,16 @@ outPut.innerHTML = 'Scelta utente: ' + randomUtente + '<br> Scelta computer: ' +
 
 var sommaNumeri = parseInt(randomUtente) + parseInt(randomComputerN) ;
 
-
-if (parseInt(sommaNumeri) % 2 === 0) {
-    var numero = 'La somma dei due è pari!: ' + sommaNumeri; 
-}else{
-    numero = 'La somma dei due è dispari! : ' + sommaNumeri;
+function separiSeDispari (num) {
+    if (parseInt(num) % 2 === 0) {
+        var numero = 'La somma dei due è pari!: ' + num; 
+    }else{
+        numero = 'La somma dei due è dispari! : ' + num;
+    }
+    return numero; 
 }
-outPut.innerHTML += '<br>' + numero; 
+
+var scopertaPariDispari = separiSeDispari(sommaNumeri);
+
+outPut.innerHTML += '<br>' + scopertaPariDispari; 
 
