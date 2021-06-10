@@ -1,18 +1,31 @@
-// var stringaUtente = prompt('Inserisci una parola per sapere se è Palidroma');
 
-// function palidroma(parola) {
+function ispalindroma (word) {
+    var reverseword = '';
+    
+    for (var i = word.lenght - 1; i >=0; i--) {
+        reverseword += word[i];
+    }
+    console.log(reverseword);
 
-//     var stringa = parola.split('').reverse().join('');
-//     if (stringa === parola) {
-//         alert('è palindroma');
-//     }else{
-//         alert('no');
-//     }
-//     return stringa;
+    if (word === reverseword) {
+        return true;
+    }else{
+        return false;
+    }
+}
+var stringaUtente = prompt('Inserisci la parola da vedere se è palindroma');
 
-// }
+var palindromaOutPut = document.getElementsByClassName('element')[0];
 
-// alert(palidroma(stringaUtente));
+if (ispalindroma(stringaUtente) === true) {
+    palindromaOutPut.innerHTML = 'Si è palindroma';
+}else{
+    palindromaOutPut.innerHTML = 'No non lo è';
+}
+
+
+
+
 
 // secondo esercizio pari o dispari: 
 
@@ -22,15 +35,24 @@ function randomNumber(min, max){
 }
 function separiSeDispari (num) {
     if (parseInt(num) % 2 === 0) {
-        var numero = 'la somma dei due numeri è pari!: ' + num; 
+        return true;
     }else{
-        numero = 'la somma dei due numeri è dispari! : ' + num;
+        return false;
     }
-    return numero; 
+  
 }
 
 var pariDispari = prompt('La somma di due numeri è pari o dispari ?');
+while (pariDispari !== 'pari' && pariDispari !== 'dispari') {
+    alert('Attenzione devi inserire o pari o dispari');
+    pariDispari = prompt('La somma di due numeri è pari o dispari?');
+}
 var numeroUtente = parseInt(prompt('Inserisci la tua scelta numero da 1 a 5'));
+while (isNaN(numeroUtente) || numeroUtente > 5 || numeroUtente < 1) {
+    alert('Attenzione devi inserire un numero da 1 a 5');
+    numeroUtente = prompt('Inserisci un numero da 1 a 5');
+}
+
 outPut = document.getElementById('result');
 
 var randomUtente = numeroUtente ;  
@@ -42,10 +64,10 @@ var scopertaPariDispari = separiSeDispari(sommaNumeri);
 
 var pari = 'pari';
 
-if (pariDispari === pari && scopertaPariDispari % 2 === 0) {
-    var check = 'hai vinto ' + scopertaPariDispari;
+if ((separiSeDispari(sommaNumeri) === true && pariDispari === 'pari')|| (separiSeDispari(sommaNumeri)=== false && pariDispari === 'dispari')) {
+    outPut.innerHTML += '<br> hai vinto'; 
 }else{
-    check = 'no ha vinto il computer ' + scopertaPariDispari;
+    outPut.innerHTML += '<br> hai perso ha vinto il computer';
 }
 
-outPut.innerHTML += '<br>' + check; 
+ 
